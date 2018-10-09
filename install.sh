@@ -35,6 +35,9 @@ ln -s $(pwd)/ranger ~/.config/ranger
 rm -rf ~/.vimrc
 ln -s $(pwd)/vim/vimrc ~/.vimrc
 
+rm -rf ~/.gitconfig
+ln -s $(pwd)/git/gitconfig ~/.gitconfig
+
 rm -rf ~/.Xresources
 ln -s $(pwd)/xresources/Xresources ~/.Xresources
 
