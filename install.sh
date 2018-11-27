@@ -43,3 +43,11 @@ ln -s $(pwd)/xresources/Xresources ~/.Xresources
 
 sudo pacman -S yay
 
+
+# Install greeter
+yay -S lightdm-mini-greeter
+
+[ -f /etc/lightdm/lightdm-mini-greeter.conf ] && sudo mv /etc/lightdm/lightdm-mini-greeter.conf /etc/lightdm/lightdm-mini-greeter.conf.bak
+sudo cp $(pwd)/greeter/lightdm-mini-greeter.conf /etc/lightdm/lightdm-mini-greeter.conf
+sudo sed -i s/lightdm-slick-greeter/lightdm-mini-greeter/ /etc/lightdm/lightdm.conf
+
