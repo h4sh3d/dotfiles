@@ -112,5 +112,5 @@ let g:latex_preview#rebuild_events = 'TextChanged,TextChangedI'
 let g:latex_preview#compiler_args = '-shell-escape -interaction=nonstopmode -file-line-error'
 
 set autoread
-set nofoldenable
+set foldlevelstart=20
 
