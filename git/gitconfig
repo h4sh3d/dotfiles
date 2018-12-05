@@ -22,3 +22,5 @@
 
 [status]
 	short = true
+[core]
+	editor = vim

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Start installation..."
+
 echo "Copying files"
 
 # Install slock with setuid on
@@ -32,17 +34,28 @@ ln -s $(pwd)/conky ~/.config/conky
 rm -rf ~/.config/ranger
 ln -s $(pwd)/ranger ~/.config/ranger
 
+# Xressources
+rm -rf ~/.Xresources
+ln -s $(pwd)/xresources/Xresources ~/.Xresources
+rm -rf ~/.Xnord
+ln -s $(pwd)/xresources/Xnord ~/.Xnord
+
+echo "Configuring vim"
+
+pushd
+rm -rf ~/.vim_runtime
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+popd
+
 rm -rf ~/.vimrc
 ln -s $(pwd)/vim/vimrc ~/.vimrc
 
 rm -rf ~/.gitconfig
 ln -s $(pwd)/git/gitconfig ~/.gitconfig
 
-rm -rf ~/.Xresources
-ln -s $(pwd)/xresources/Xresources ~/.Xresources
-
 sudo pacman -S yay
-
 
 # Install greeter
 yay -S lightdm-mini-greeter

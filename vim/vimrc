@@ -2,39 +2,45 @@ set runtimepath+=/home/joel/.vim_runtime
 
 source /home/joel/.vim_runtime/vimrcs/basic.vim
 source /home/joel/.vim_runtime/vimrcs/filetypes.vim
-"source /home/joel/.vim_runtime/vimrcs/plugins_config.vim
-"source /home/joel/.vim_runtime/vimrcs/extended.vim
 
 try
 source /home/joel/.vim_runtime/my_configs.vim
 catch
 endtry
 
+" Inject Pathogen
+execute pathogen#infect()
+call pathogen#helptags()
+
+" Config
 set number
 set mouse=a
 set foldcolumn=2
 
-execute pathogen#infect()
-call pathogen#helptags()
-"autocmd vimenter * NERDTree
+set autoread
+set foldlevelstart=20
+
+" Remove vertical |
+set fillchars+=vert:\  " witespace
+
+" Customize NerdTree config
 map <C-n> :NERDTreeToggle<CR>
 
+" Set color theme
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_cursor_line_number_background = 1
 
-colorscheme jellybeans
-
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
+colorscheme nord
 
 set guifont=Monaco:h10 noanti
 
-"let g:indent_guides_enable_on_vim_startup = 1
-let g:airline_theme='angr'
+"let g:airline_theme='angr'
 
-" Goyo config
+" Goyo custom config
 let g:goyo_width = 120
-"autocmd! User GoyoEnter Limelight
-"autocmd! User GoyoLeave Limelight!
 
 function! s:goyo_enter()
   let b:quitting = 0
@@ -84,33 +90,7 @@ function! s:goyo_leave()
   silent! iunmap <buffer> <End>
 endfunction
 
+" Trigger costum config on Goyo enter/leave
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
-
-" LimeLight config
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-" Default: 0.5
-let g:limelight_default_coefficient = 0.5
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 0
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-"let g:limelight_bop = '^\s'
-"let g:limelight_eop = '\ze\n^\s'
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = 10
-
-" Latex Preview config
-let g:latex_preview#rebuild_events = 'TextChanged,TextChangedI'
-let g:latex_preview#compiler_args = '-shell-escape -interaction=nonstopmode -file-line-error'
-
-set autoread
-set foldlevelstart=20
 
