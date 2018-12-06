@@ -19,7 +19,7 @@ sudo ln -s $(pwd)/utils/select-screen.sh /usr/local/bin/screen
 sudo rm -rf /usr/local/bin/start_conky
 sudo ln -s $(pwd)/utils/start_conky /usr/local/bin/start_conky
 
-# Install i3 config and i3status
+# Configure i3 and i3status
 rm -rf ~/.i3
 ln -s $(pwd)/i3 ~/.i3
 
@@ -30,15 +30,44 @@ ln -s $(pwd)/i3status ~/.config/i3status
 rm -rf ~/.config/conky
 ln -s $(pwd)/conky ~/.config/conky
 
-# Install ranger file manager
+# Configure ranger file manager
 rm -rf ~/.config/ranger
 ln -s $(pwd)/ranger ~/.config/ranger
 
 # Xressources
 rm -rf ~/.Xresources
-ln -s $(pwd)/xresources/Xresources ~/.Xresources
-rm -rf ~/.Xnord
-ln -s $(pwd)/xresources/Xnord ~/.Xnord
+cp $(pwd)/xresources/Xresources ~/.Xresources
+
+echo "Configuring TERM"
+
+# Install xterm
+yay -S xterm
+
+echo "Configuring SHELL"
+
+# Install zsh
+yay -S zsh
+
+pushd
+rm -rf ~/.oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+popd
+
+# Install pure prompt
+rm -rf ~/.config/pure
+pushd ~/.config
+git clone https://github.com/sindresorhus/pure.git pure
+popd
+sudo rm -rf /usr/local/share/zsh/site-functions/prompt_pure_setup /usr/local/share/zsh/site-functions/async
+sudo ln -s ~/.config/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+sudo ln -s ~/.config/pure/async.zsh /usr/local/share/zsh/site-functions/async
+
+rm -rf ~/.zshrc.bak
+[ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak
+cp $(pwd)/zsh/zshrc ~/.zshrc
+
+# Switch to zsh
+chsh -s /usr/bin/zsh
 
 echo "Configuring vim"
 
@@ -52,10 +81,12 @@ popd
 rm -rf ~/.vimrc
 ln -s $(pwd)/vim/vimrc ~/.vimrc
 
+echo "Configuring Git"
+
 rm -rf ~/.gitconfig
 ln -s $(pwd)/git/gitconfig ~/.gitconfig
 
-sudo pacman -S yay
+echo "Configuring greeter"
 
 # Install greeter
 yay -S lightdm-mini-greeter
