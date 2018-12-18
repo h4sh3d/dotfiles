@@ -8,6 +8,9 @@ echo "Copying files"
 sudo rm -rf /usr/local/bin/slock
 sudo cp $(pwd)/utils/slock /usr/local/bin/
 sudo chmod u+s /usr/local/bin/slock
+# Install i3exit script
+sudo rm -rf /usr/bin/i3exit
+sudo cp $(pwd)/utils/i3exit.sh /usr/bin/i3exit
 
 # Install other utils
 sudo rm -rf /usr/local/bin/i3class
