@@ -199,7 +199,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 assign [title="Firefox"] $ws1
 assign [title="Slack"] $ws8
 assign [class="Thunderbird"] $ws4
-assign [class="whatsapp-desktop"] $ws7
+assign [class="whats-app-nativefier-7bbd2c"] $ws7
 assign [title="Telegram"] $ws7
 assign [title="Signal"] $ws7
 for_window [class="Spotify"] move to workspace $ws9
@@ -315,7 +315,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id optirun spotify --force-device-scale-factor=1.5 --ui.track_notifications_enabled=false
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
-exec --no-startup-id Whatsapp
+exec --no-startup-id whatsapp-web-desktop
 exec --no-startup-id telegram-desktop
 exec --no-startup-id signal-desktop
 exec --no-startup-id i3-msg 'workspace $ws2; exec xterm'
@@ -364,7 +364,7 @@ bar {
 
     bindsym button4 nop
     bindsym button5 nop
-    font xft:Noto Sans 8
+    font xft:Noto Sans, FontAwesome5Free, FontAwesome5Brands 8
     strip_workspace_numbers yes
 
     colors {

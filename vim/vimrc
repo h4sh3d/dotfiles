@@ -25,6 +25,7 @@ if has('unnamedplus')
 endif
 
 set autoread
+let javascript_fold=0 "desactive js fold
 set foldlevelstart=20
 
 " Remove vertical |
