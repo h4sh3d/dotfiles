@@ -51,10 +51,8 @@ echo "Configuring SHELL"
 # Install zsh
 yay -S zsh
 
-pushd
 rm -rf ~/.oh-my-zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-popd
 
 # Install pure prompt
 rm -rf ~/.config/pure
@@ -74,11 +72,48 @@ chsh -s /usr/bin/zsh
 
 echo "Configuring vim"
 
-pushd
 rm -rf ~/.vim_runtime
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+pushd ~/.vim/bundle
+if [ ! -d "goyo.vim" ]; then
+    git clone https://github.com/junegunn/goyo.vim.git
+fi
+if [ ! -d "nerdtree" ]; then
+    git clone https://github.com/scrooloose/nerdtree.git
+    #pushd nerdtree
+    #git checkout tags/5.0.0
+    #popd
+fi
+if [ ! -d "nord-vim" ]; then
+    git clone https://github.com/arcticicestudio/nord-vim.git
+    #pushd nord-vim
+    #git checkout tags/v0.11.0
+    #popd
+fi
+#if [ ! -d "typescript-vim" ]; then
+#    git clone https://github.com/leafgarland/typescript-vim.git
+#fi
+if [ ! -d "vim-airline" ]; then
+    git clone https://github.com/bling/vim-airline
+fi
+if [ ! -d "vim-airline-themes" ]; then
+    git clone https://github.com/vim-airline/vim-airline-themes
+fi
+if [ ! -d "vim-gitgutter" ]; then
+    git clone https://github.com/airblade/vim-gitgutter.git
+fi
+if [ ! -d "youcompleteme" ]; then
+    git clone https://github.com/Valloric/youcompleteme.git
+    pushd youcompleteme
+    git submodule update --init --recursive
+    python3 install.py --rust-completer
+    popd
+    # Install the Rust source code
+    rustup component add rust-src
+fi
 popd
 
 rm -rf ~/.vimrc
