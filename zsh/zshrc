@@ -99,7 +99,6 @@ PURE_PROMPT_SYMBOL=❯
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -lah --color"
 alias cdd="cd ~/developer"
-alias cddt="cd ~/developer/truelevel"
 
 function sshadd {
     eval "$(ssh-agent -s)"
