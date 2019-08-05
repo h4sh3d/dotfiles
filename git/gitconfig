@@ -1,6 +1,7 @@
 [user]
-	email = joel@truelevel.io
 	name = Joel
+	email = joel.gugger@rdlp.ch
+	signingkey = EDC803B0489692C3
 
 [alias]
 	st = status
@@ -25,3 +26,7 @@
 [core]
 	editor = vim
 	excludesfile = /home/joel/.gitignore_global
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
