@@ -201,7 +201,7 @@ assign [title="Slack"] $ws8
 assign [class="Thunderbird"] $ws4
 #assign [class="whats-app-nativefier-7bbd2c"] $ws7
 assign [title="Telegram"] $ws7
-assign [title="Signal"] $ws7
+#assign [title="Signal"] $ws7
 for_window [class="Spotify"] move to workspace $ws9
 
 # Open specific applications in floating mode
@@ -295,10 +295,10 @@ mode "resize" {
 bindsym $mod+Ctrl+l exec slock
 
 # Change keyboard layout to FR_CH
-bindsym $mod+Ctrl+c exec gksudo "keyboardctl -l ch fr"
+bindsym $mod+Ctrl+c exec setxkbmap ch fr
 
 # Change keyboard layout to US_US
-bindsym $mod+Ctrl+u exec gksudo "keyboardctl -l us"
+bindsym $mod+Ctrl+u exec setxkbmap us
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -312,7 +312,7 @@ exec --no-startup-id start_conky
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id optirun spotify --force-device-scale-factor=1.5 --ui.track_notifications_enabled=false
+exec --no-startup-id spotify --force-device-scale-factor=1.5 --ui.track_notifications_enabled=false
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 #exec --no-startup-id whatsapp-nativefier
