@@ -314,6 +314,7 @@ exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id spotify --force-device-scale-factor=1.5 --ui.track_notifications_enabled=false
 exec --no-startup-id firefox
+exec --no-startup-id slack
 exec --no-startup-id thunderbird
 #exec --no-startup-id whatsapp-nativefier
 exec --no-startup-id telegram-desktop

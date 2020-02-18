@@ -16,6 +16,7 @@ call pathogen#helptags()
 set number
 set mouse=a
 set foldcolumn=2
+set foldlevelstart=1
 "set cursorline
 "set termguicolors
 
@@ -104,3 +105,5 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
+au BufNewFile,BufRead,BufReadPost *.sage set syntax=python

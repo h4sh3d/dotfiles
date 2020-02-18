@@ -105,9 +105,13 @@ else
     git pull
     cd ..
 fi
-#if [ ! -d "typescript-vim" ]; then
-#    git clone https://github.com/leafgarland/typescript-vim.git
-#fi
+if [ ! -d "toml" ]; then
+    git clone https://github.com/cespare/vim-toml.git
+else
+    cd toml
+    git pull
+    cd ..
+fi
 if [ ! -d "vim-airline" ]; then
     git clone https://github.com/bling/vim-airline
 else
