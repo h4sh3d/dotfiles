@@ -99,13 +99,15 @@ PURE_PROMPT_SYMBOL=❯
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -lah --color"
 alias cdd="cd ~/developer"
+alias cddc="cd ~/developer/cysec"
+alias cddt="cd ~/developer/thimoo"
 
 function sshadd {
     eval "$(ssh-agent -s)"
     ssh-add
 }
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.config/composer/vendor/bin
 
 export PATH="/var/lib/snapd/snap/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
