@@ -198,6 +198,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # Open applications on specific workspaces
 assign [title="Firefox"] $ws1
 assign [title="Slack"] $ws8
+assign [title="Zulip"] $ws6
 assign [class="Thunderbird"] $ws4
 #assign [class="whats-app-nativefier-7bbd2c"] $ws7
 assign [title="Telegram"] $ws7
@@ -315,6 +316,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id spotify --force-device-scale-factor=1.5 --ui.track_notifications_enabled=false
 exec --no-startup-id firefox
 exec --no-startup-id slack
+exec --no-startup-id zulip
 exec --no-startup-id thunderbird
 #exec --no-startup-id whatsapp-nativefier
 exec --no-startup-id telegram-desktop
