@@ -65,7 +65,8 @@ sudo ln -s ~/.config/pure/async.zsh /usr/local/share/zsh/site-functions/async
 
 rm -rf ~/.zshrc.bak
 [ -f ~/.zshrc ] && cp ~/.zshrc ~/.zshrc.bak
-cp $(pwd)/zsh/zshrc ~/.zshrc
+rm -rf ~/.zshrc
+ln -s $(pwd)/zsh/zshrc ~/.zshrc
 
 # Switch to zsh
 chsh -s /usr/bin/zsh
