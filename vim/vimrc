@@ -8,6 +8,9 @@ source /home/joel/.vim_runtime/my_configs.vim
 catch
 endtry
 
+syntax enable
+filetype plugin indent on
+
 " Inject Pathogen
 execute pathogen#infect()
 call pathogen#helptags()
