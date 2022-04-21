@@ -101,6 +101,12 @@ alias ll="ls -lah --color"
 alias cdd="cd ~/developer"
 alias cddc="cd ~/developer/cryp"
 alias cddt="cd ~/developer/thimoo"
+alias cddf="cd ~/developer/farcaster"
+
+# Laravel Sail shortcut
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
+alias cargod='RUSTDOCFLAGS="--cfg docsrs" cargo +nightly doc --all-features --no-deps'
 
 function sshadd {
     eval "$(ssh-agent -s)"
@@ -116,7 +122,12 @@ export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/Postman:$PATH"
+
+export DPRINT_INSTALL="$HOME/.dprint"
+export PATH="$DPRINT_INSTALL/bin:$PATH"
 
 export BROWSER="/usr/bin/firefox"
 export EDITOR="/usr/bin/vim"
 
+source /usr/share/nvm/init-nvm.sh
